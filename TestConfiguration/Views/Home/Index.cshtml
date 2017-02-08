@@ -1,0 +1,15 @@
+﻿@using System.Reflection
+@model TestConfiguration.Handler.YowkoConfigSectionHandler
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var item in Model.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+{
+<div class="row">
+    <div class="col-lg-1">@item.Name</div>
+    <div class="col-lg-3">@item.GetValue(Model)</div>
+</div>
+}
