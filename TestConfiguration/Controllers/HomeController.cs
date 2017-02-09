@@ -17,5 +17,26 @@ namespace TestConfiguration.Controllers
 
             return View(clientConfiguration);
         }
+
+        public ActionResult Index2()
+        {
+            YowkoConfigSectionHandler clientConfiguration = ConfigurationManager.GetSection("yowkoData") as YowkoConfigSectionHandler;
+
+            return View(clientConfiguration);
+        }
+        public ActionResult Index3()
+        {
+            yowkoConfigSection clientConfiguration = ConfigurationManager.GetSection("yowkoDataGroup1/yowkoConfig") as yowkoConfigSection;
+
+            return View(clientConfiguration);
+        }
+
+
+
+        public ActionResult About()
+        {
+            var section = ConfigurationManager.GetSection("yowkoSettingGroup/yowkoSetting");// as YowkoSettingsSection;
+            return View(section);
+        }
     }
 }

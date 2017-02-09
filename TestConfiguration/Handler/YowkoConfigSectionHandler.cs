@@ -49,6 +49,15 @@ namespace TestConfiguration.Handler
         }
     }
 
+    public class yowkoConfigSection : ConfigurationSection
+    {
+        [ConfigurationProperty("yowkoData")]
+        public YowkoDataElement YowkoData
+        {
+            get { return this["yowkoData"] as YowkoDataElement; }
+        }
+    }
+
     public class YowkoDataElement : ConfigurationElement
     {
         [ConfigurationProperty("channel", DefaultValue = "", IsRequired = true)]
