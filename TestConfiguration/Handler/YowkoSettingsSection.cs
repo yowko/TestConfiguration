@@ -8,20 +8,16 @@ namespace TestConfiguration.Handler
 {
     public class YowkoSettingsSection : ConfigurationSection
     {
-        [ConfigurationProperty("yowkoData")]
-        //[ConfigurationCollection(typeof(YowkoDataElement))]
-        public YowkoDataElement YowkoData
-        {
-            get { return this["yowkoData"] as YowkoDataElement; }
-        }
-
-
-        //[ConfigurationProperty("yowkoSetting")]
-        ////[ConfigurationCollection(typeof(YowkoDataElement))]
-        //public YowkoDataElement yowkoSetting
+        //[ConfigurationProperty("yowkoData")]
+        //public YowkoDataElement YowkoData
         //{
-        //    get { return this["yowkoSetting"] as YowkoDataElement; }
+        //    get { return this["yowkoData"] as YowkoDataElement; }
         //}
+
+        [ConfigurationProperty("yowkoDatas")]
+        [ConfigurationCollection(typeof(YowkoDataElement), AddItemName = "yowkoData")]
+        public YowkoDataElementCollection YowkoDatas => this["yowkoDatas"] as YowkoDataElementCollection;
+
 
 
         //[ConfigurationProperty("YowkoDatas")]
