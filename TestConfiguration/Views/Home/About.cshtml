@@ -6,14 +6,14 @@
 
 <h2>Index</h2>
 
-@*@foreach (var item in Model.YowkoDatas)
-{
-    foreach (var jtem in item.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+@*@foreach (var item in Model.)
+{*@
+    @foreach (var jtem in (Model.YowkoData).GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
     {
         <div class="row">
             <div class="col-lg-1">@jtem.Name</div>
-            <div class="col-lg-3">@jtem.GetValue(item)</div>
+            <div class="col-lg-3">@jtem.GetValue(Model.YowkoData)</div>
         </div>
     }
-}*@
+@*}*@
 

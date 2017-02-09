@@ -56,7 +56,30 @@ namespace TestConfiguration.Handler
         {
             get { return this["yowkoData"] as YowkoDataElement; }
         }
+        //[ConfigurationProperty("yowkoDatas")]
+        //[ConfigurationCollection(typeof(YowkoDataElement))]
+        //public YowkoDataCollection Caches
+        //{
+        //    get
+        //    {
+        //        return this["yowkoDatas"] as YowkoDataCollection;
+        //    }
+        //}
     }
+
+    //public class YowkoDataCollection : ConfigurationElementCollection
+    //{
+    //    protected override ConfigurationElement CreateNewElement()
+    //    {
+    //        return new YowkoDataElement();
+    //    }
+
+    //    protected override object GetElementKey(ConfigurationElement element)
+    //    {
+    //        return (element as YowkoDataElement).Channel;
+    //    }
+    //}
+
 
     public class YowkoDataElement : ConfigurationElement
     {
