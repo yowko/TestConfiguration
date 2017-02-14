@@ -1,0 +1,29 @@
+﻿@using System.Reflection
+@model TestConfiguration.Handler.YowkoSettings
+@{
+    ViewBag.Title = "Action4";
+}
+
+<h2>Index</h2>
+
+@*@foreach (var item in (Model).GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+{
+    <div class="row">
+        <div class="col-lg-1">@item.Name</div>
+        <div class="col-lg-3">@item.GetValue(Model)</div>
+    </div>
+}*@
+
+@foreach (var item in Model.yowkoSettings)
+{
+    foreach (var jtem in item.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+    {
+        <div class="row">
+            <div class="col-lg-1">@jtem.Name</div>
+            <div class="col-lg-3">@jtem.GetValue(item)</div>
+        </div>
+    }
+}
+
+
+

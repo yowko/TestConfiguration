@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,7 +32,18 @@ namespace TestConfiguration.Controllers
             return View(clientConfiguration);
         }
 
+        public ActionResult Action4()
+        {
+            var configFile = Path.Combine(Server.MapPath("~/App_Data"), "setting.config");
+            //var section = ConfigurationManager.GetSection("yowkoSettingGroup/yowko");
+            ConfigurationFileMap fileMap = new ConfigurationFileMap(configFile);
+            //System.Configuration.Configuration managerConfiguration = System.Configuration.ConfigurationManager.OpenMappedMachineConfiguration(fileMap);
+            YowkoSettings managerConfiguration =
+                System.Configuration.ConfigurationManager.OpenMappedMachineConfiguration(fileMap).GetSection("yowko") as YowkoSettings;
 
+            var test = managerConfiguration.yowkoSettings.Select(a => new DataSetting { Channel = a.Channel, UserName = a.UserName, UserSecret = a.UserSecret }).ToList();
+            return View(managerConfiguration);
+        }
 
         public ActionResult About()
         {
